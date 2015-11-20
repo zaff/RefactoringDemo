@@ -97,4 +97,17 @@ public class CustomerTest {
                         "Amount owed is 2.0\n" +
                         "You earned 1 frequent renter points.");
     }
+
+    @Test
+    public void ShouldGetStrangeMovieType() {
+        Movie regularRelease = new Movie("Gladiator", (PriceCodes) null);
+        Rental rental = new Rental(regularRelease, 1);
+        customer.addRental(rental);
+
+        assertThat(customer.Statement()).isEqualTo(
+                "Rental record for Mickey Mouse\n" +
+                        "\tGladiator\t2.0\n" +
+                        "Amount owed is 2.0\n" +
+                        "You earned 1 frequent renter points.");
+    }
 }
