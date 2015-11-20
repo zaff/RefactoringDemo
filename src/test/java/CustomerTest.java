@@ -1,5 +1,4 @@
 import com.scrumtrek.simplestore.*;
-import org.junit.Before;
 import org.junit.Test;
 import static org.assertj.core.api.Assertions.*;
 
@@ -7,21 +6,14 @@ import static org.assertj.core.api.Assertions.*;
  * Created by user on 19.11.2015.
  */
 public class CustomerTest {
-
-    private Customer customer;
-    Movie regularRelease = new Movie("Gladiator", new RegularCategory());
-    Movie newRelease = new Movie("Gladiator", new NewReleaseCategory());
-    Movie childrenRelease = new Movie("Gladiator", new ChildrenCategory());
-
-    @Before
-    public void TestInitialize(){
-        customer = new Customer("Mickey Mouse");
-    }
+    IRentalCategory regularRelease = new RegularCategory();
+    IRentalCategory newRelease = new NewReleaseCategory();
+    IRentalCategory childrenRelease = new ChildrenCategory();
 
     @Test
-    public void ShouldGetStatementWhenAddNewRelease(){
-        Rental rental = new Rental(newRelease, 5);
-        customer.addRental(rental);
+    public void ShouldGetStatementWhenAddNewRelease() {
+        Customer customer = buildTestee(newRelease, 5);
+
         assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
                         "\tGladiator\t15.0" + System.lineSeparator() +
@@ -30,9 +22,8 @@ public class CustomerTest {
     }
 
     @Test
-    public void ShouldGetStatementWhenAddNewReleaseForOneDay(){
-        Rental rental = new Rental(newRelease, 1);
-        customer.addRental(rental);
+    public void ShouldGetStatementWhenAddNewReleaseForOneDay() {
+        Customer customer = buildTestee(newRelease, 1);
 
         assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
@@ -42,9 +33,9 @@ public class CustomerTest {
     }
 
     @Test
-    public void ShouldGetStatementWhenAddChildrenRelease(){
-        Rental rental = new Rental(childrenRelease, 5);
-        customer.addRental(rental);
+    public void ShouldGetStatementWhenAddChildrenRelease() {
+        Customer customer = buildTestee(childrenRelease, 5);
+
         assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
                         "\tGladiator\t3.0" + System.lineSeparator() +
@@ -54,9 +45,7 @@ public class CustomerTest {
 
     @Test
     public void ShouldGetStatementWhenAddRegularRelease() {
-        Rental rental = new Rental(regularRelease, 5);
-        customer.addRental(rental);
-
+        Customer customer = buildTestee(regularRelease, 5);
         assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
                         "\tGladiator\t6.5" + System.lineSeparator() +
@@ -65,9 +54,8 @@ public class CustomerTest {
     }
 
     @Test
-    public void ShouldGetStatementWhenAddChildrenReleaseForOneDay(){
-        Rental rental = new Rental(childrenRelease, 1);
-        customer.addRental(rental);
+    public void ShouldGetStatementWhenAddChildrenReleaseForOneDay() {
+        Customer customer = buildTestee(childrenRelease, 1);
 
         assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
@@ -78,13 +66,20 @@ public class CustomerTest {
 
     @Test
     public void ShouldGetStatementWhenAddRegularReleaseForOneDay() {
-        Rental rental = new Rental(regularRelease, 1);
-        customer.addRental(rental);
+        Customer customer = buildTestee(regularRelease, 1);
 
         assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
                         "\tGladiator\t2.0" + System.lineSeparator() +
                         "Amount owed is 2.0" + System.lineSeparator() +
                         "You earned 1 frequent renter points.");
+    }
+
+    private Customer buildTestee(IRentalCategory rentalCategory, int days) {
+        Customer customer = new Customer("Mickey Mouse");
+        Movie movie = new Movie("Gladiator", rentalCategory);
+        Rental rental = new Rental(movie, days);
+        customer.addRental(rental);
+        return customer;
     }
 }
