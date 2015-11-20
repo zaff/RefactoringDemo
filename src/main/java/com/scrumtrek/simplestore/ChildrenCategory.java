@@ -3,19 +3,15 @@ package com.scrumtrek.simplestore;
 /**
  * Created by user on 19.11.2015.
  */
-public class ChildrenCategory implements IRentalCategory {
+public class ChildrenCategory extends  OnePointCategoryBase {
+    final transient double amountPerDay = 1.5;
+    final transient int actionDayCount = 3;
+
     @Override
     public double CalculateAmount(int days) {
-
-        double result = 1.5;
-        if (days > 3) {
-            result = (days - 3) * 1.5;
+        if (days > actionDayCount) {
+            return (days - actionDayCount) * amountPerDay;
         }
-        return result;
-    }
-
-    @Override
-    public double CalculatePoints(int days) {
-        return 1;
+        return amountPerDay;
     }
 }

@@ -3,18 +3,15 @@ package com.scrumtrek.simplestore;
 /**
  * Created by user on 19.11.2015.
  */
-public class RegularCategory implements IRentalCategory {
-    @Override
-    public double CalculateAmount(int days) {
-        double result = 2;
-        if (days > 2) {
-            result += (days - 2) * 1.5;
-        }
-        return result;
-    }
+public class RegularCategory extends OnePointCategoryBase {
+    final transient double amountPerDay = 2;
+    final transient int actionDayCount = 2;
 
     @Override
-    public double CalculatePoints(int days) {
-        return 1;
+    public double CalculateAmount(int days) {
+        if (days > actionDayCount) {
+            return amountPerDay + (days - actionDayCount) * 1.5;
+        }
+        return amountPerDay;
     }
 }
