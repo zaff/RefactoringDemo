@@ -1,5 +1,8 @@
 import com.scrumtrek.simplestore.*;
 import org.junit.Test;
+
+import java.util.Locale;
+
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -51,10 +54,10 @@ public class CustomerTest {
 
     private void checkStatement(Customer customer, double amount, int points) {
         assertThat(customer.buildStatement()).isEqualTo(String.format(
-                "Rental record for %s" + System.lineSeparator() + "\t%s\t" +
-                        amount + System.lineSeparator() +
-                        "Amount owed is " + amount + System.lineSeparator() +
-                        "You earned " + points + " frequent renter points.", CUSTOMER_NAME, MOVIE_NAME));
+                Locale.US,
+                "Rental record for %s%5$s\t%s\t%.1f%5$sAmount owed is %3$.1f" +
+                        "%5$sYou earned %d frequent renter points.",
+                CUSTOMER_NAME, MOVIE_NAME, amount, points, System.lineSeparator()));
     }
 
     private Customer buildTestee(IRentalCategory rentalCategory, int days) {
