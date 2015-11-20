@@ -4,9 +4,9 @@ package com.scrumtrek.simplestore;
  * Created by user on 19.11.2015.
  */
 public class NewRealeseCategory implements IRentalCategory {
+    /* default */ final static double amountPerDay = 3;
     @Override
     public double CalculateAmount(int days) {
-        final double amountPerDay = 3;
         return days * amountPerDay;
     }
 

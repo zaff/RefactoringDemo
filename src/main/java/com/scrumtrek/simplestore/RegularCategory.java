@@ -4,8 +4,8 @@ package com.scrumtrek.simplestore;
  * Created by user on 19.11.2015.
  */
 public class RegularCategory extends OnePointCategoryBase {
-    final static double amountPerDay = 2;
-    final static int actionDayCount = 2;
+    /* default */ final static double amountPerDay = 2;
+    /* default */ final static int actionDayCount = 2;
 
     @Override
     public double CalculateAmount(int days) {
