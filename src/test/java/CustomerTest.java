@@ -23,9 +23,9 @@ public class CustomerTest {
         Rental rental = new Rental(newRelease, 5);
         customer.addRental(rental);
         assertThat(customer.Statement()).isEqualTo(
-                "Rental record for Mickey Mouse\n" +
-                        "\tGladiator\t15.0\n" +
-                        "Amount owed is 15.0\n" +
+                "Rental record for Mickey Mouse" + System.lineSeparator() +
+                        "\tGladiator\t15.0" + System.lineSeparator() +
+                        "Amount owed is 15.0" + System.lineSeparator() +
                         "You earned 2 frequent renter points.");
     }
 
@@ -35,9 +35,9 @@ public class CustomerTest {
         customer.addRental(rental);
 
         assertThat(customer.Statement()).isEqualTo(
-                "Rental record for Mickey Mouse\n" +
-                        "\tGladiator\t3.0\n" +
-                        "Amount owed is 3.0\n" +
+                "Rental record for Mickey Mouse" + System.lineSeparator() +
+                        "\tGladiator\t3.0" + System.lineSeparator() +
+                        "Amount owed is 3.0" + System.lineSeparator() +
                         "You earned 1 frequent renter points.");
     }
 
@@ -46,9 +46,9 @@ public class CustomerTest {
         Rental rental = new Rental(childrenRelease, 5);
         customer.addRental(rental);
         assertThat(customer.Statement()).isEqualTo(
-                "Rental record for Mickey Mouse\n" +
-                        "\tGladiator\t3.0\n" +
-                        "Amount owed is 3.0\n" +
+                "Rental record for Mickey Mouse" + System.lineSeparator() +
+                        "\tGladiator\t3.0" + System.lineSeparator() +
+                        "Amount owed is 3.0" + System.lineSeparator() +
                         "You earned 1 frequent renter points.");
     }
 
@@ -58,9 +58,9 @@ public class CustomerTest {
         customer.addRental(rental);
 
         assertThat(customer.Statement()).isEqualTo(
-                "Rental record for Mickey Mouse\n" +
-                        "\tGladiator\t6.5\n" +
-                        "Amount owed is 6.5\n" +
+                "Rental record for Mickey Mouse" + System.lineSeparator() +
+                        "\tGladiator\t6.5" + System.lineSeparator() +
+                        "Amount owed is 6.5" + System.lineSeparator() +
                         "You earned 1 frequent renter points.");
     }
 
@@ -70,9 +70,9 @@ public class CustomerTest {
         customer.addRental(rental);
 
         assertThat(customer.Statement()).isEqualTo(
-                "Rental record for Mickey Mouse\n" +
-                        "\tGladiator\t1.5\n" +
-                        "Amount owed is 1.5\n" +
+                "Rental record for Mickey Mouse" + System.lineSeparator() +
+                        "\tGladiator\t1.5" + System.lineSeparator() +
+                        "Amount owed is 1.5" + System.lineSeparator() +
                         "You earned 1 frequent renter points.");
     }
 
@@ -82,9 +82,9 @@ public class CustomerTest {
         customer.addRental(rental);
 
         assertThat(customer.Statement()).isEqualTo(
-                "Rental record for Mickey Mouse\n" +
-                        "\tGladiator\t2.0\n" +
-                        "Amount owed is 2.0\n" +
+                "Rental record for Mickey Mouse" + System.lineSeparator() +
+                        "\tGladiator\t2.0" + System.lineSeparator() +
+                        "Amount owed is 2.0" + System.lineSeparator() +
                         "You earned 1 frequent renter points.");
     }
 }

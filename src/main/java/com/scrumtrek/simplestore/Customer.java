@@ -24,7 +24,7 @@ public class Customer {
         double totalAmount = 0;
         int totalPoints = 0;
 
-        StringBuilder result = new StringBuilder("Rental record for ").append(m_Name).append("\n");
+        StringBuilder result = new StringBuilder("Rental record for ").append(m_Name).append(System.lineSeparator());
 
         for (Rental each : m_Rentals) {
 
@@ -34,13 +34,13 @@ public class Customer {
             int days = each.getDaysRented();
 
             double amount = category.CalculateAmount(days);
-            result.append(String.format(Locale.US, "\t%s\t%.1f\n", movie.getTitle(), amount));
+            result.append(String.format(Locale.US, "\t%s\t%.1f%s", movie.getTitle(), amount, System.lineSeparator()));
             totalAmount += amount;
             totalPoints += category.CalculatePoints(days);
         }
 
         // Add footer lines
-        result.append(String.format(Locale.US, "Amount owed is %.1f\n", totalAmount))
+        result.append(String.format(Locale.US, "Amount owed is %.1f%s", totalAmount, System.lineSeparator()))
                 .append(String.format("You earned %d frequent renter points.", totalPoints));
         return result.toString();
     }
