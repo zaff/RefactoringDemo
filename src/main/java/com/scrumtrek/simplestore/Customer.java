@@ -2,6 +2,12 @@ package com.scrumtrek.simplestore;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by user on 19.11.2015.
+ *
+ * * more
+ * more
+ */
 public class Customer {
     private final String name;
     private final List<Rental> rentals = new ArrayList<>();

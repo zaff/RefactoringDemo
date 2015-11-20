@@ -2,6 +2,8 @@ package com.scrumtrek.simplestore;
 
 /**
  * Created by user on 19.11.2015.
+ *
+ * more
  */
 public class NewReleaseCategory extends RentalCategoryBase {
     /* default */ private static final double AMOUNT_PER_DAY = 3;

@@ -2,6 +2,9 @@ package com.scrumtrek.simplestore;
 
 /**
  * Created by user on 19.11.2015.
+ *
+ * * more
+ * more
  */
 public class RegularCategory extends RentalCategoryBase {
     /* default */ private static final double AMOUNT_PER_DAY = 2;

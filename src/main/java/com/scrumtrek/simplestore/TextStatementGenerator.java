@@ -4,6 +4,8 @@ import java.util.Locale;
 
 /**
  * Created by user on 20.11.2015.
+ * more
+ * more
  */
 public class TextStatementGenerator implements IStatementGenerator {
     @Override

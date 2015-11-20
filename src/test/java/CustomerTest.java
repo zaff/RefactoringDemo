@@ -8,6 +8,8 @@ import static org.assertj.core.api.Assertions.*;
 
 /**
  * Created by user on 19.11.2015.
+ * more
+ * more
  */
 public class CustomerTest {
     /* default */ private static final String MOVIE_NAME = "Gladiator";

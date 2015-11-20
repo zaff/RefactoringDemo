@@ -1,5 +1,11 @@
 package com.scrumtrek.simplestore;
 
+/**
+ * Created by user on 19.11.2015.
+ *
+ * * more
+ * more
+ */
 public class Movie {
     private final String title;
     private final IRentalCategory rentalCategory;

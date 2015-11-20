@@ -1,6 +1,12 @@
 package com.scrumtrek.simplestore;
 
 import java.util.Locale;
+/**
+ * Created by user on 19.11.2015.
+ *
+ * * more
+ * more
+ */
 
 public class Rental {
     private final Movie movie;
