@@ -4,8 +4,8 @@ package com.scrumtrek.simplestore;
  * Created by user on 19.11.2015.
  */
 public class ChildrenCategory implements IRentalCategory {
-    /* default */ private final static double AMOUNT_PER_DAY = 1.5;
-    /* default */ private final static int ACTION_DAY_COUNT = 3;
+    /* default */ private static final double AMOUNT_PER_DAY = 1.5;
+    /* default */ private static final int ACTION_DAY_COUNT = 3;
 
     @Override
     public double CalculateAmount(int days) {

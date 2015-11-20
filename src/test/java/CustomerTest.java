@@ -22,7 +22,7 @@ public class CustomerTest {
     public void ShouldGetStatementWhenAddNewRelease(){
         Rental rental = new Rental(newRelease, 5);
         customer.addRental(rental);
-        assertThat(customer.Statement()).isEqualTo(
+        assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
                         "\tGladiator\t15.0" + System.lineSeparator() +
                         "Amount owed is 15.0" + System.lineSeparator() +
@@ -34,7 +34,7 @@ public class CustomerTest {
         Rental rental = new Rental(newRelease, 1);
         customer.addRental(rental);
 
-        assertThat(customer.Statement()).isEqualTo(
+        assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
                         "\tGladiator\t3.0" + System.lineSeparator() +
                         "Amount owed is 3.0" + System.lineSeparator() +
@@ -45,7 +45,7 @@ public class CustomerTest {
     public void ShouldGetStatementWhenAddChildrenRelease(){
         Rental rental = new Rental(childrenRelease, 5);
         customer.addRental(rental);
-        assertThat(customer.Statement()).isEqualTo(
+        assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
                         "\tGladiator\t3.0" + System.lineSeparator() +
                         "Amount owed is 3.0" + System.lineSeparator() +
@@ -57,7 +57,7 @@ public class CustomerTest {
         Rental rental = new Rental(regularRelease, 5);
         customer.addRental(rental);
 
-        assertThat(customer.Statement()).isEqualTo(
+        assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
                         "\tGladiator\t6.5" + System.lineSeparator() +
                         "Amount owed is 6.5" + System.lineSeparator() +
@@ -69,7 +69,7 @@ public class CustomerTest {
         Rental rental = new Rental(childrenRelease, 1);
         customer.addRental(rental);
 
-        assertThat(customer.Statement()).isEqualTo(
+        assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
                         "\tGladiator\t1.5" + System.lineSeparator() +
                         "Amount owed is 1.5" + System.lineSeparator() +
@@ -81,7 +81,7 @@ public class CustomerTest {
         Rental rental = new Rental(regularRelease, 1);
         customer.addRental(rental);
 
-        assertThat(customer.Statement()).isEqualTo(
+        assertThat(customer.buildStatement()).isEqualTo(
                 "Rental record for Mickey Mouse" + System.lineSeparator() +
                         "\tGladiator\t2.0" + System.lineSeparator() +
                         "Amount owed is 2.0" + System.lineSeparator() +

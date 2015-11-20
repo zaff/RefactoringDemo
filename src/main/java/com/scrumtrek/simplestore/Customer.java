@@ -19,7 +19,7 @@ public class Customer {
         rentals.add(arg);
     }
 
-    public String Statement() {
+    public String buildStatement() {
         double totalAmount = 0;
         int totalPoints = 0;
 
