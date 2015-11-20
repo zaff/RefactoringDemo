@@ -8,7 +8,7 @@ public class ChildrenCategory implements IRentalCategory {
     /* default */ private static final int ACTION_DAY_COUNT = 3;
 
     @Override
-    public double CalculateAmount(int days) {
+    public double calculateAmount(int days) {
 
         if (days > ACTION_DAY_COUNT) {
             return (days - ACTION_DAY_COUNT) * AMOUNT_PER_DAY;

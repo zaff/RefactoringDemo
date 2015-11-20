@@ -26,11 +26,11 @@ public class Customer {
             final Movie movie = each.getMovie();
             final IRentalCategory category = movie.getRentalCategory();
             final int days = each.getDaysRented();
-            final double amount = category.CalculateAmount(days);
+            final double amount = category.calculateAmount(days);
 
             result.append(String.format(Locale.US, "\t%s\t%.1f%s", movie.getTitle(), amount, System.lineSeparator()));
             totalAmount += amount;
-            totalPoints += category.CalculatePoints(days);
+            totalPoints += category.calculatePoints(days);
         }
 
         // Add footer lines

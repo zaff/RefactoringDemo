@@ -1,20 +1,20 @@
 package com.scrumtrek.simplestore;
 
 public class Movie {
-	private transient final String m_Title;
-	private transient final IRentalCategory m_RentalCategory;
+	private final transient String title;
+	private final transient IRentalCategory rentalCategory;
 
 	public Movie(String title, IRentalCategory rentalCategory) {
-		m_Title = title;
-		m_RentalCategory = rentalCategory;
+		this.title = title;
+		this.rentalCategory = rentalCategory;
 	}
 
 	public IRentalCategory getRentalCategory() {
-		return m_RentalCategory;
+		return rentalCategory;
 	}
 
 	public String getTitle() {
-		return m_Title;
+		return title;
 	}
 }
 

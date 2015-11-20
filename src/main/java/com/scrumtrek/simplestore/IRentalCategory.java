@@ -5,9 +5,9 @@ package com.scrumtrek.simplestore;
  */
 @FunctionalInterface
 public interface IRentalCategory {
-    double CalculateAmount(int days);
+    double calculateAmount(int days);
 
-    default double CalculatePoints(int days) {
+    default double calculatePoints(int days) {
         return 1;
     }
 }

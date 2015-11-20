@@ -8,7 +8,7 @@ public class RegularCategory implements IRentalCategory {
     /* default */ private static final int ACTION_DAY_COUNT = 2;
 
     @Override
-    public double CalculateAmount(int days) {
+    public double calculateAmount(int days) {
         if (days > ACTION_DAY_COUNT) {
             return AMOUNT_PER_DAY + (days - ACTION_DAY_COUNT) * 1.5;
         }
