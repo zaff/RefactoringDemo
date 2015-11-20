@@ -1,3 +1,4 @@
+
 import com.scrumtrek.simplestore.*;
 import org.junit.Test;
 
@@ -50,6 +51,53 @@ public class CustomerTest {
     public void ShouldGetStatementWhenAddRegularReleaseForOneDay() {
         Customer customer = buildTestee(regularRelease, 1);
         checkStatement(customer, 2, 1);
+    }
+
+    @Test
+    public void CheckNewRelease() {
+        Rental rental = buildRentalTestee(newRelease, 5);
+        assertThat(rental.calculateAmount()).isEqualTo(15);
+        assertThat(rental.calculatePoints()).isEqualTo(2);
+    }
+
+    @Test
+    public void CheckNewReleaseForOneDay() {
+        Rental rental = buildRentalTestee(newRelease, 1);
+        assertThat(rental.calculateAmount()).isEqualTo(3);
+        assertThat(rental.calculatePoints()).isEqualTo(1);
+    }
+
+    @Test
+    public void CheckChildrenRelease() {
+        Rental rental = buildRentalTestee(childrenRelease, 5);
+        assertThat(rental.calculateAmount()).isEqualTo(3);
+        assertThat(rental.calculatePoints()).isEqualTo(1);
+    }
+
+    @Test
+    public void CheckRegularRelease() {
+        Rental rental = buildRentalTestee(regularRelease, 5);
+        assertThat(rental.calculateAmount()).isEqualTo(6.5);
+        assertThat(rental.calculatePoints()).isEqualTo(1);
+    }
+
+    @Test
+    public void CheckChildrenReleaseForOneDay() {
+        Rental rental = buildRentalTestee(childrenRelease, 1);
+        assertThat(rental.calculateAmount()).isEqualTo(1.5);
+        assertThat(rental.calculatePoints()).isEqualTo(1);
+    }
+
+    @Test
+    public void CheckRegularReleaseForOneDay() {
+        Rental rental = buildRentalTestee(regularRelease, 1);
+        assertThat(rental.calculateAmount()).isEqualTo(2);
+        assertThat(rental.calculatePoints()).isEqualTo(1);
+    }
+
+    private Rental buildRentalTestee(IRentalCategory rentalCategory, int days) {
+        Movie movie = new Movie(MOVIE_NAME, rentalCategory);
+        return new Rental(movie, days);
     }
 
     private void checkStatement(Customer customer, double amount, int points) {
