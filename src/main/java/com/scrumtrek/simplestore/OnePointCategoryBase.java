@@ -5,7 +5,7 @@ package com.scrumtrek.simplestore;
  */
 public abstract class OnePointCategoryBase implements IRentalCategory {
     @Override
-    public double CalculatePoints(int days) {
+    public final double CalculatePoints(int days) {
         return 1;
     }
 }
