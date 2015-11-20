@@ -53,7 +53,7 @@ public class CustomerTest {
     }
 
     private void checkStatement(Customer customer, double amount, int points) {
-        assertThat(customer.buildStatement()).isEqualTo(String.format(
+        assertThat(new TextStatementGenerator().generate(customer).getRawContent()).isEqualTo(String.format(
                 Locale.US,
                 "Rental record for %s%5$s\t%s\t%.1f%5$sAmount owed is %3$.1f" +
                         "%5$sYou earned %d frequent renter points.",

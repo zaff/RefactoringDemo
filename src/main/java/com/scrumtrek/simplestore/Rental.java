@@ -18,7 +18,7 @@ public class Rental {
     public double calculateAmount(){
         return movie.getRentalCategory().calculateAmount(daysRented);
     }
-    
+
     @Override
     public String toString() {
         return String.format(Locale.US, "\t%s\t%.1f%s", movie.getTitle(),
