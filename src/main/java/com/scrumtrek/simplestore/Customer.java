@@ -11,10 +11,6 @@ public class Customer {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void addRental(Rental arg) {
         rentals.add(arg);
     }
@@ -23,7 +19,8 @@ public class Customer {
         double totalAmount = 0;
         int totalPoints = 0;
 
-        StringBuilder result = new StringBuilder("Rental record for ").append(name).append(System.lineSeparator());
+        final StringBuilder result = new StringBuilder("Rental record for ").append(name)
+                .append(System.lineSeparator());
 
         for (final Rental each : rentals) {
             final Movie movie = each.getMovie();
