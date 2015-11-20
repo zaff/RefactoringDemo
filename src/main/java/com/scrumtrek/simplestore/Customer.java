@@ -5,7 +5,7 @@ import java.util.Locale;
 
 public class Customer {
     private final transient String m_Name;
-    private final List<Rental> m_Rentals = new ArrayList<>();
+    private final transient List<Rental> m_Rentals = new ArrayList<>();
 
     public Customer(String name) {
         m_Name = name;
@@ -13,11 +13,7 @@ public class Customer {
 
     public String getName() {
         return m_Name;
-    }
-    
-    public List<Rental> getRentals() {
-        return m_Rentals;
-    }
+    }   
 
     public void addRental(Rental arg) {
         m_Rentals.add(arg);
