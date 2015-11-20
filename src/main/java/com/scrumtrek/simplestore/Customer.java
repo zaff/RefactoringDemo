@@ -8,7 +8,7 @@ import java.util.Locale;
 
 public class Customer {
 	private final transient String m_Name;
-	private transient List<Rental> m_Rentals = new ArrayList<>();
+	private final transient List<Rental> m_Rentals = new ArrayList<>();
 
 	public Customer(String name) {
 		m_Name = name;
@@ -43,8 +43,8 @@ public class Customer {
 		}
 
 		// Add footer lines
-        result.append(String.format(Locale.US, "Amount owed is %.1f\n", totalAmount));
-        result.append(String.format("You earned %d frequent renter points.", totalPoints));
+        result.append(String.format(Locale.US, "Amount owed is %.1f\n", totalAmount))
+              .append(String.format("You earned %d frequent renter points.", totalPoints));
 		return result.toString();
 	}
 }
