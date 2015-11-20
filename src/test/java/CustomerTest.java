@@ -28,9 +28,9 @@ public class CustomerTest {
 
         assertThat(customer.Statement()).isEqualTo(
                 "Rental record for Mickey Mouse\n" +
-                "\tGladiator\t15.0\n" +
-                "Amount owed is 15.0\n" +
-                "You earned 2 frequent renter points.");
+                        "\tGladiator\t15.0\n" +
+                        "Amount owed is 15.0\n" +
+                        "You earned 2 frequent renter points.");
     }
 
     @Test
