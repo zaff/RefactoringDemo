@@ -6,12 +6,13 @@ package com.scrumtrek.simplestore;
 public class NewRealeseCategory implements IRentalCategory {
     @Override
     public double CalculateAmount(int days) {
-        return days * 3;
+        return days * 3.0;
     }
 
     @Override
     public double CalculatePoints(int days) {
 
-        return days > 1 ? 2 : 1;
+        if (days > 1) return 2;
+        else return 1;
     }
 }
