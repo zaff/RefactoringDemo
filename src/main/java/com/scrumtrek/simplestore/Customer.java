@@ -14,7 +14,10 @@ public class Customer {
     public String getName() {
         return m_Name;
     }
-
+    
+    public List<Rental> getRentals() {
+        return m_Rentals;
+    }
 
     public void addRental(Rental arg) {
         m_Rentals.add(arg);
