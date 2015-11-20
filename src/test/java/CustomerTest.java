@@ -10,7 +10,7 @@ public class CustomerTest {
 
     private Customer customer;
     Movie regularRelease = new Movie("Gladiator", new RegularCategory());
-    Movie newRelease = new Movie("Gladiator", new NewRealeseCategory());
+    Movie newRelease = new Movie("Gladiator", new NewReleaseCategory());
     Movie childrenRelease = new Movie("Gladiator", new ChildrenCategory());
 
     @Before

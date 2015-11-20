@@ -5,5 +5,8 @@ package com.scrumtrek.simplestore;
  */
 public interface IRentalCategory {
     double CalculateAmount(int days);
-    double CalculatePoints(int days);
+
+    default double CalculatePoints(int days) {
+        return 1;
+    }
 }
