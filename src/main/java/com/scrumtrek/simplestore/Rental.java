@@ -1,5 +1,7 @@
 package com.scrumtrek.simplestore;
 
+import java.util.Locale;
+
 public class Rental {
     private final Movie movie;
     private final int daysRented;
@@ -9,12 +11,17 @@ public class Rental {
         this.daysRented = daysRented;
     }
 
-    public int getDaysRented() {
-        return daysRented;
+    public double calculatePoints(){
+        return movie.getRentalCategory().calculatePoints(daysRented);
     }
 
-    public Movie getMovie() {
-        return movie;
+    public double calculateAmount(){
+        return movie.getRentalCategory().calculateAmount(daysRented);
+    }
+
+    public String toString() {
+        return String.format(Locale.US, "\t%s\t%.1f%s", movie.getTitle(),
+                calculateAmount(), System.lineSeparator());
     }
 }
 

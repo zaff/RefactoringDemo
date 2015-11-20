@@ -23,20 +23,19 @@ public class Customer {
                 .append(System.lineSeparator());
 
         for (final Rental each : rentals) {
-            final Movie movie = each.getMovie();
-            final IRentalCategory category = movie.getRentalCategory();
-            final int days = each.getDaysRented();
-            final double amount = category.calculateAmount(days);
-
-            result.append(String.format(Locale.US, "\t%s\t%.1f%s", movie.getTitle(), amount, System.lineSeparator()));
-            totalAmount += amount;
-            totalPoints += category.calculatePoints(days);
+            result.append(each);
+            totalAmount += each.calculateAmount();
+            totalPoints += each.calculatePoints();
         }
 
         // Add footer lines
-        result.append(String.format(Locale.US, "Amount owed is %.1f%s", totalAmount, System.lineSeparator()))
-                .append(String.format("You earned %d frequent renter points.", totalPoints));
+        result.append(buildTotalStatement(totalAmount, totalPoints));
         return result.toString();
+    }
+
+    public String buildTotalStatement(double totalAmount, int totalPoints) {
+        return String.format(Locale.US, "Amount owed is %.1f%sYou earned %d frequent renter points.",
+                totalAmount, System.lineSeparator(), totalPoints);
     }
 }
 
