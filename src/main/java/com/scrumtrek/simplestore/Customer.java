@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class Customer {
-    private final transient String name;
-    private final transient List<Rental> rentals = new ArrayList<>();
+    private final String name;
+    private final List<Rental> rentals = new ArrayList<>();
 
     public Customer(String name) {
         this.name = name;

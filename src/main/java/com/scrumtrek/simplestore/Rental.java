@@ -1,8 +1,8 @@
 package com.scrumtrek.simplestore;
 
 public class Rental {
-	private transient final Movie movie;
-	private transient final int daysRented;
+	private final Movie movie;
+	private final int daysRented;
 
 	public Rental(Movie movie, int daysRented) {
 		this.movie = movie;

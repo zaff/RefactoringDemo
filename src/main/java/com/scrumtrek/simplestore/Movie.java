@@ -1,8 +1,8 @@
 package com.scrumtrek.simplestore;
 
 public class Movie {
-	private final transient String title;
-	private final transient IRentalCategory rentalCategory;
+	private final String title;
+	private final IRentalCategory rentalCategory;
 
 	public Movie(String title, IRentalCategory rentalCategory) {
 		this.title = title;
