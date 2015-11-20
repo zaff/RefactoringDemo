@@ -3,6 +3,7 @@ package com.scrumtrek.simplestore;
 /**
  * Created by user on 19.11.2015.
  */
+@FunctionalInterface
 public interface IRentalCategory {
     double CalculateAmount(int days);
 
