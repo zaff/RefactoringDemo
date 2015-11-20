@@ -3,7 +3,7 @@ package com.scrumtrek.simplestore;
 /**
  * Created by user on 19.11.2015.
  */
-public class NewReleaseCategory implements IRentalCategory {
+public class NewReleaseCategory extends RentalCategoryBase {
     /* default */ private static final double AMOUNT_PER_DAY = 3;
     /* default */ private static final int BONUS_POINTS = 2;
     @Override
@@ -17,6 +17,6 @@ public class NewReleaseCategory implements IRentalCategory {
         {
             return BONUS_POINTS;
         }
-        return IRentalCategory.super.calculatePoints(days);
+        return super.calculatePoints(days);
     }
 }
